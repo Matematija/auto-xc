@@ -1,4 +1,4 @@
-# <p style="text-align: center;">Auto XC</p>
+# <h1 align='center'>Auto XC</h1>
 
 Automatic differentiation tools for custom density functionals with libXC in quantum chemistry. Auto XC uses the [JAX](https://github.com/google/jax) automatic differentiation engine and [PySCF](https://github.com/pyscf/pyscf) to interface with [libXC](https://gitlab.com/libxc/libxc).
 
@@ -70,7 +70,7 @@ converged SCF energy = -40.13856531146
 Any density functional can be experimented with this way by passing the function $\varepsilon _{xc}$ to `autoxc.custom_functional` as long as it is JAX-differentiable. We use the following convention:
 
 $$
-E_{xc} \left[ \rho \right] = \int \text{d} ^3 \mathbf{r} \; \rho(\mathbf{r}) \, \varepsilon_{xc}\left( \rho(\mathbf{r}), \gamma (\mathbf{r}), \tau (\mathbf{r}) \right) 
+E_{xc} \left[ \rho \right] = \int \text{d} ^3 \mathbf{r} \rho(\mathbf{r}) \varepsilon_{xc}\left( \rho(\mathbf{r}), \gamma (\mathbf{r}), \tau (\mathbf{r}) \right) 
 $$
 
 where $\gamma (\mathbf{r}) = \left| \nabla \rho (\mathbf{r}) \right| ^2$ and $\tau (\mathbf{r}) = \frac{1}{2} \sum _a \left| \nabla \varphi _a (\mathbf{r}) \right| ^2$ ($\varphi _a$ are Kohn-Sham orbitals). At the moment, we support:
