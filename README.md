@@ -2,7 +2,15 @@
 
 Automatic differentiation tools for custom density functionals with libXC in quantum chemistry. Auto XC uses the [JAX](https://github.com/google/jax) automatic differentiation engine and [PySCF](https://github.com/pyscf/pyscf) to interface with [libXC](https://gitlab.com/libxc/libxc).
 
-## Example usage:
+## Installation
+
+Auto XC is not available through package managers yet. The easiest way to install is to pip-install directly from GitHub:
+
+```bash
+pip3 install 'autoxc@git+https://github.com/Matematija/auto-xc.git'
+```
+
+## Example usage
 
 A simple PySCF example - methane.
 
