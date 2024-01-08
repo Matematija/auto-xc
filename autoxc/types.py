@@ -1,10 +1,7 @@
 from typing import Union, Any, Callable
-
-import numpy as np
-import jax
 from pyscf import scf
+from jax.typing import ArrayLike
 
-Array = Union[np.ndarray, jax.Array]
 SCFLike = Union[scf.rhf.RHF, scf.uhf.UHF]
 PyTree = Any
-Functional = Callable[..., Array]
+Functional = Callable[..., ArrayLike]

@@ -1,7 +1,10 @@
+from typing import Callable
+
 import jax
 from jax import numpy as jnp
 
-from .functional import FunctionalInputs, WrappedFunctional
+from .inputs import FunctionalInputs
+from .types import ArrayLike
 
 __all__ = ["libxc_derivatives"]
 
@@ -110,6 +113,8 @@ def process_hessian(hessian, spin):
 
 ########################################################################
 
+WrappedFunctional = Callable[[FunctionalInputs], ArrayLike]
+
 
 def libxc_derivatives(functional: WrappedFunctional, spin: int = 0, deriv: int = 1):
 
@@ -130,7 +135,7 @@ def libxc_derivatives(functional: WrappedFunctional, spin: int = 0, deriv: int =
         _, back, exc = jax.vjp(eval_exc_aux, inputs, has_aux=True)
         (grads,) = back(jnp.ones_like(exc))
 
-        vxc = process_grads(grads, spin)
+        vxc = process_grads(grads)
         fxc, kxc = None, None
 
         if deriv >= 2:
