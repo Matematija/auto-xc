@@ -125,7 +125,8 @@ def libxc_derivatives(functional: WrappedFunctional, spin: int = 0, deriv: int =
 
     def eval_exc_aux(inputs: FunctionalInputs):
         exc = functional(inputs)
-        return inputs.rho * exc, exc
+        rho = inputs.rho if spin == 0 else inputs.rho.sum(axis=1)
+        return rho * exc, exc
 
     if deriv >= 2:
         hess_fn = jax.vmap(jax.hessian(eval_exc_aux, has_aux=True))
