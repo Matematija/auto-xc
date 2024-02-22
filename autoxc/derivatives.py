@@ -125,7 +125,7 @@ def libxc_derivatives(functional: WrappedFunctional, spin: int = 0, deriv: int =
 
     def eval_exc_aux(inputs: FunctionalInputs, *args):
         exc = functional(inputs, *args)
-        rho = inputs.rho if spin == 0 else inputs.rho.sum(axis=-1)
+        rho = inputs.rho if spin == 0 else inputs.rho.sum(axis=1)
         return rho * exc, exc
 
     if deriv >= 2:
