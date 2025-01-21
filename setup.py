@@ -1,6 +1,6 @@
 from setuptools import setup, find_packages
 
-BASE_DEPENDENCIES = ["numpy", "jax", "pyscf<=2.3.0"]
+BASE_DEPENDENCIES = ["numpy", "jax", "pyscf"]
 
 setup(
     name="autoxc",
